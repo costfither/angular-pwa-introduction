@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ImageComponent } from './components/image/image/image.component';
-import { ImagesComponent } from './components/image/images/images.component';
+import { CharacterListComponent } from './components/Character/character-list/character-list.component';
+import { CharacterPageComponent } from './components/Character/character-page/character-page.component';
 
 const routes: Routes = [
-  { path: '', component: ImagesComponent },
-  { path: 'image/:id', component: ImageComponent },
-  { path: '**', component: ImagesComponent },
+  { path: '', component: CharacterListComponent },
+  { path: 'character/:id', component: CharacterPageComponent },
+  { path: '**', component: CharacterListComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabledBlocking'
+})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

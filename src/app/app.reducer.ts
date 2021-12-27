@@ -1,10 +1,13 @@
 import { ActionReducerMap } from '@ngrx/store';
-import * as ImageReducer from './components/image/reducer';
+import { CharactersEffects } from './components/Character/effects';
+import * as CharactersReducer from './components/Character/reducer';
 
 export interface AppState {
-  images: ImageReducer.ImagesState;
+  characters: CharactersReducer.CharactersState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
-  images: ImageReducer.imageReducer,
+  characters: CharactersReducer.CharactersReducer,
 };
+
+export const EffectsArray: any[] = [CharactersEffects];

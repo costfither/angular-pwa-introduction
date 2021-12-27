@@ -1,14 +1,16 @@
 <div class="container">
-  <h1>Images</h1>
+  <h1>Characters</h1>
   <ul class="list-group">
     <a
-      *ngFor="let image of images"
+      *ngFor="let character of characters"
+      [routerLink]="['/character', character.id]"
       class="
         list-group-item list-group-item-action
         animate_animated animate_bounce animate_fadeIn
+        ng-star-inserted
       "
     >
-      {{ image.id }} - {{ image.author }}
+      {{ character.id }} - {{ character.name }}
     </a>
   </ul>
 </div>

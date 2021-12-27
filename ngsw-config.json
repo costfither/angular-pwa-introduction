@@ -32,8 +32,8 @@
   ],
   "dataGroups": [
     {
-      "name": "images-api",
-      "urls": ["https://picsum.photos/v2/list"],
+      "name": "starwars-api",
+      "urls": ["'https://akabab.github.io/starwars-api/api/all.json"],
       "cacheConfig": {
         "maxSize": 10,
         "maxAge": "1h",

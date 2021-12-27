@@ -1,0 +1,73 @@
+<div class="container mt-5">
+  <div
+    *ngIf="character"
+    class="row animate__animated animate__bounce animate__fadeIn"
+  >
+    <div class="col-md-9">
+      <p><strong>Identifier: </strong>{{ character.id }}</p>
+      <p><strong>Name: </strong>{{ character.name }}</p>
+      <mat-accordion>
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Show all details </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p><strong>Height: </strong> {{ character.height }}</p>
+          <p><strong>Mass: </strong> {{ character.mass }}</p>
+          <p><strong>Gender: </strong> {{ character.gender }}</p>
+          <p><strong>Homeworld: </strong> {{ character.homeworld }}</p>
+          <p>
+            <strong>Url: </strong> <a href="{{ character.wiki }}"> Wiki link</a>
+          </p>
+          <p><strong>Image: </strong></p>
+          <img
+            style="width: 80%; height: 80%"
+            class="rounded"
+            src="{{ character.image }}"
+            alt=""
+          />
+          <p><strong>Born: </strong>{{ character.born }}</p>
+          <p><strong>Born location: </strong>{{ character.bornLocation }}</p>
+          <p><strong>Died: </strong>{{ character.died }}</p>
+          <p><strong>Died location: </strong>{{ character.diedLocation }}</p>
+          <p><strong>Species: </strong>{{ character.species }}</p>
+          <p *ngIf="character.hairColor">
+            <strong>Hair color: </strong>{{ character.hairColor }}
+          </p>
+          <p><strong>Eye color: </strong>{{ character.eyeColor }}</p>
+          <p><strong>Skin color: </strong>{{ character.skinColor }}</p>
+          <p *ngIf="character.cybernetics">
+            <strong>Cybernetics: </strong>{{ character.cybernetics }}
+          </p>
+          <div *ngIf="character.affiliations">
+            <p><strong>Affiliations: </strong></p>
+            <ul>
+              <li *ngFor="let affiliation of character.affiliations">
+                {{ affiliation }}
+              </li>
+            </ul>
+          </div>
+          <div *ngIf="character.masters">
+            <p><strong>Masters: </strong></p>
+            <ul>
+              <li *ngFor="let master of character.masters">{{ master }}</li>
+            </ul>
+          </div>
+          <div *ngIf="character.apprentices">
+            <p><strong>Apprentices: </strong></p>
+            <ul>
+              <li *ngFor="let apprentice of character.apprentices">
+                {{ apprentice }}
+              </li>
+            </ul>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="col-md-3">
+      <a class="btn btn-danger" routerLink="/">Back</a>
+    </div>
+  </div>
+</div>

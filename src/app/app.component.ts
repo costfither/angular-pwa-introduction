@@ -12,8 +12,8 @@ export class AppComponent {
   showLoading: boolean = false;
   constructor(private store: Store<AppState>) {}
   ngOnInit() {
-    this.store.select('images').subscribe((images) => {
-      this.showLoading = images.loading;
+    this.store.select('characters').subscribe((characters) => {
+      this.showLoading = characters.loading;
     });
   }
 }
